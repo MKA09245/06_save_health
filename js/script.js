@@ -77,13 +77,13 @@ const arrayOfHealthWishes = [
     });
 
 
-const arrayOfObjects = [
+const arrayOfVitamins = [
     {
         id:"1",
         title:"Вітамін A",
-        photo:"",
-        discription:"",
-        rating:"",
+        photo:"vitamin-a.png",
+        discription:"Вітамін А — група близьких за хімічною будовою речовин, яка включає ретиноїди: ретинол (вітамін A1, аксерофтол), дегідроретинол (вітамін А2), ретиналь (ретинен, альдегід вітаміну A1), ретиноєву кислоту і кілька провітамінів — каротиноїдів, серед яких найважливішим є β-каротин.",
+        rating:"4",
         type:"",
     },
     {
@@ -91,7 +91,7 @@ const arrayOfObjects = [
         title:"Омега-3",
         photo:"",
         discription:"",
-        rating:"",
+        rating:"3",
         type:"",
     },
     {
@@ -99,7 +99,7 @@ const arrayOfObjects = [
         title:"Вітамін D",
         photo:"",
         discription:"",
-        rating:"",
+        rating:"5",
         type:"",
     },
     {
@@ -107,7 +107,7 @@ const arrayOfObjects = [
         title:"Вітамін С",
         photo:"",
         discription:"",
-        rating:"",
+        rating:"3",
         type:"",
     },
     {
@@ -115,18 +115,30 @@ const arrayOfObjects = [
         title:"Магній Б6",
         photo:"",
         discription:"",
-        rating:"",
+        rating:"2",
         type:"",
     },
 ]
-console.log(arrayOfObjects);
+//console.log(arrayOfVitamins);
 
-arrayOfObjects.forEach((item)=>{
+arrayOfVitamins.forEach((item)=>{
     console.log(item);
 
     let divVitamin = document.createElement('div')
     divVitamin.innerText = item.title
     divVitamin.classList.add('vitamin')
 
-    document.getElementById("p-vitamins").appendChild(divVitamin)
-})
+    divVitamin.innerHTML = `
+          <h3>${item.title}</h3>
+          <hr>
+          <img src="img/vitamins/${item.photo}" alt="">
+          <p>${item.description}</p>
+          <span>${"💚".repeat(item.rating)+"🤍".repeat(5-item.rating)}</span>
+          <p>type</p>
+          <span>id</span>
+    `;
+
+    document.getElementById("p-vitamins").appendChild(divVitamin);
+});
+
+
